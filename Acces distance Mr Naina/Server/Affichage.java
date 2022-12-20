@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import javax.imageio.ImageIO;
 
-class SendScreen extends Thread {
+class Affichage extends Thread {
 
   Socket socket = null;
   Robot robot = null;
@@ -15,7 +15,7 @@ class SendScreen extends Thread {
 
   OutputStream oos = null;
 
-  public SendScreen(Socket socket, Robot robot, Rectangle rect) {
+  public Affichage(Socket socket, Robot robot, Rectangle rect) {
     this.socket = socket;
     this.robot = robot;
     rectangle = rect;

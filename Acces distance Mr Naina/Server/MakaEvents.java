@@ -3,18 +3,17 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-/* Used to recieve server commands then execute them at the client side*/
 
-class ReceiveEvents extends Thread {
+class MakaEvents extends Thread {
 
   Socket socket = null;
   Robot robot = null;
   boolean continueLoop = true;
 
-  public ReceiveEvents(Socket socket, Robot robot) {
+  public MakaEvents(Socket socket, Robot robot) {
     this.socket = socket;
     this.robot = robot;
-    start(); //Start the thread and hence calling run method
+    start();
   }
 
   public void run() {
@@ -22,7 +21,6 @@ class ReceiveEvents extends Thread {
     try {
       scanner = new Scanner(socket.getInputStream());
       while (continueLoop) {
-        //recieve commands and respond accordingly
 
         int command = scanner.nextInt();
         switch (command) {

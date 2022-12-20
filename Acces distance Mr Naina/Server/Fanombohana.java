@@ -11,15 +11,19 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.*;
 
-public class InitConnection {
+//selection port
+//manao securite(mdp)
+//maka socket
 
-  ServerSocket socket = null;
+public class Fanombohana {
+
+  ServerSocket socket = null;         //definir avy eo
   DataInputStream password = null;
   DataOutputStream verify = null;
   String width = "";
   String height = "";
 
-  InitConnection(int port, String value1) {
+  Fanombohana(int port, String value1) {
     Robot robot = null;
     Rectangle rectangle = null;
     try {
@@ -41,15 +45,14 @@ public class InitConnection {
         Socket sc = socket.accept();
         password = new DataInputStream(sc.getInputStream());
         verify = new DataOutputStream(sc.getOutputStream());
-        //String username=password.readUTF();
         String pssword = password.readUTF();
 
         if (pssword.equals(value1)) {
           verify.writeUTF("marina");
           verify.writeUTF(width);
           verify.writeUTF(height);
-          new SendScreen(sc, robot, rectangle);
-          new ReceiveEvents(sc, robot);
+          new Affichage(sc, robot, rectangle);
+          new MakaEvents(sc, robot);
         } else {
           verify.writeUTF("diso");
         }
