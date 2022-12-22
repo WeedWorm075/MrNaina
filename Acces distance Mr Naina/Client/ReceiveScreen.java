@@ -23,7 +23,6 @@ class ReceiveScreen extends Thread {
 
   public void run() {
     try {
-      //Read screenshots of the client and then draw them
       while (continueLoop) {
         byte[] bytes = new byte[1024 * 1024];
         int count = 0;
@@ -45,7 +44,6 @@ class ReceiveScreen extends Thread {
             Image.SCALE_FAST
           );
 
-        //Draw the received screenshots
 
         Graphics graphics = cPanel.getGraphics();
         graphics.drawImage(

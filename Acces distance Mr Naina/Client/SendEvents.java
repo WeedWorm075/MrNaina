@@ -23,16 +23,14 @@ class SendEvents implements KeyListener, MouseMotionListener, MouseListener {
     this.width = width;
     this.height = height;
     w = Double.valueOf(width.trim()).doubleValue();
-    h = Double.valueOf(width.trim()).doubleValue();
+    h = Double.valueOf(height.trim()).doubleValue();
 
-    //Associate event listeners to the panel
 
     cPanel.addKeyListener(this);
     cPanel.addMouseListener(this);
     cPanel.addMouseMotionListener(this);
 
     try {
-      //Prepare PrintWriter which will be used to send commands to the client
       writer = new PrintWriter(cSocket.getOutputStream());
     } catch (IOException ex) {
       ex.printStackTrace();
